@@ -20,6 +20,7 @@
     "babel-preset-react": "^6.24.1",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
+    "cassandra-driver": "^3.3.0",
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
     "dotenv": "^4.0.0",
@@ -28,9 +29,11 @@
     "nodemon": "^1.12.5",
     "path": "^0.12.7",
     "pg": "^7.4.0",
+    "randomstring": "^1.1.5",
     "request": "^2.83.0",
     "supertest": "^3.0.0",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "uuid": "^3.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
