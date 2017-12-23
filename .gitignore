@@ -4,3 +4,4 @@ build
 diagrams.js
 newrelic.js
 .env
+newrelic*

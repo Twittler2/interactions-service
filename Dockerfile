@@ -1,23 +1,20 @@
 # What image do you want to start building on?
-FROM node:7.6-alpine
+FROM node:8.6
 
 # Make a folder in your image where your app's source code can live
-RUN mkdir -p /src/app
+RUN mkdir -p /app
 
 # Tell your container where your app's source code will live
-WORKDIR /src/app
+WORKDIR /app
 
 # What source code do you what to copy, and where to put it? First argument (.) points to the directory of this file so it coppies everything from it
-COPY . /src/app
+COPY . /app
 
 # Does your app have any dependencies that should be installed?
-COPY package*.json ./
 RUN npm install
-RUN yarn install
-RUN yarn global add nodemon
 
 # What port will the container talk to the outside world with once created?
 EXPOSE 3000
 
 # How do you start your app?
-CMD [ "npm", "run", "server:dev"]
+CMD [ "npm", "run", "server"]

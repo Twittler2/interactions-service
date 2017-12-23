@@ -18,6 +18,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // --------------------- the below endpoints are for testing purposes only -----------------------
 
+// the below endpoint is used to test containerization
+app.get('/', (request, response) => {
+  response.send('-v mounts a volume on the CONTAINER - no change is needed on the actual image... Also, I dont even have nodemon running... jk, nodemon IS RUNNING');
+});
+
 app.post('/tweets/events', (request, response) => {
   console.log('Post to tweets successful');
   response.json();
@@ -49,7 +54,7 @@ app.post('/testinput', (request, response) => {
     })
     .catch((err) => {
       response.json();
-    }); 
+    });
 });
 
 // -------------------------- END OF TESTING PORTION CODE -----------------------------------------
@@ -57,5 +62,3 @@ app.post('/testinput', (request, response) => {
 app.listen(PORT, () => console.log(`Listening on port ${PORT}! Let's friggin do this!`));
 
 module.exports.app = app;
-
-
