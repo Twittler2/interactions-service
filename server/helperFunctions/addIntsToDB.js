@@ -1,4 +1,4 @@
-const { client } = require('./../../database/index');
+const { client } = require('./../../database/index'); // THIS CLIENT WILL EVENTUALLY NEED TO LEAD TO MY EC2 INSTANCE
 const postIntsToTweets = require('./postIntsToTweets');
 
 const { generateIntrID, generateTimestamp } = require('./dataGeneration');

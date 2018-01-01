@@ -1,4 +1,5 @@
 const cassandra = require('cassandra-driver');
+const axios = require('axios');
 
 const { client } = require('./index');
 const dataGeneration = require('./../server/helperFunctions/dataGeneration');
@@ -50,12 +51,12 @@ function createSingleInsert() {
 let batchNumber = 1
 
 function createBatchInsert() {
-  console.log('Data records: ', batchNumber * 50);
+  console.log('Data records: ', batchNumber * 100);
   batchNumber += 1;
 
   const queries = [];
 
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 100; i++) {
     queries.push(createSingleInsert());
   }
 
@@ -63,7 +64,7 @@ function createBatchInsert() {
 }
 
 function createOneMillionEntries(int = 0) {
-  if (int === 200000) {
+  if (int === 1000000) {
     console.log('Creation complete');
     return;
   }
@@ -78,3 +79,12 @@ function createOneMillionEntries(int = 0) {
 
 // uncomment the below line to generate the data
 // createOneMillionEntries(0);
+
+// creates 1 feed request
+axios.post('http://127.0.0.1:3000/testinput')
+  .then((response) => {
+    console.log('Successful post');
+  })
+  .catch((err) => {
+    console.log('There was an error with the post');
+  });

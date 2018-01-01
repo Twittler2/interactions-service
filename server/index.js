@@ -23,14 +23,14 @@ app.get('/', (request, response) => {
   response.send('-v mounts a volume on the CONTAINER - no change is needed on the actual image... Also, I dont even have nodemon running... jk, nodemon IS RUNNING');
 });
 
-app.post('/tweets/events', (request, response) => {
+app.post('/tweets/events', (request, response) => { // will be to Nick's service
   console.log('Post to tweets successful');
   response.json();
 });
 
-app.get('/user', (request, response) => {
+app.get('/user', (request, response) => { // will be to Aygerm
   console.log('Get to /user successful');
-  response.json(!!Math.round(Math.random()));
+  response.json({ results: [true, false, false, true, true] });
 });
 
 app.get('/feed/:userId', (request, response) => {
