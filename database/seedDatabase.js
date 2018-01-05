@@ -64,7 +64,7 @@ function createBatchInsert() {
 }
 
 function createOneMillionEntries(int = 0) {
-  if (int === 1000000) {
+  if (int === 100000) {
     console.log('Creation complete');
     return;
   }

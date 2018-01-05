@@ -1,4 +1,6 @@
-const nr = require('newrelic');
+// const nr = require('newrelic');
+
+const queue = require('./../queue/logins');
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -6,6 +8,11 @@ const path = require('path');
 const dotenv = require('dotenv');
 
 const getFeed = require('./helperFunctions/getFeed');
+
+const getFeed2 = require('./helperFunctions2/getFeed2');
+const generateInteraction2 = require('./helperFunctions2/generateInteraction2');
+const addIntsToDB2 = require('./helperFunctions2/addIntsToDB2');
+
 
 dotenv.config();
 
@@ -46,7 +53,7 @@ app.get('/feed/:userId', (request, response) => {
   });
 });
 
-
+// Endpoint '/testinput' used to simulate full app function by interacting with local server
 app.post('/testinput', (request, response) => {
   getFeed() // returns a promise
     .then((res) => {
@@ -55,6 +62,13 @@ app.post('/testinput', (request, response) => {
     .catch((err) => {
       response.json();
     });
+});
+
+// Endpoint '/testinput2' used to simulate full app function by calling helper functions
+
+app.post('/testinput2', (request, response) => {
+  queue.createLogin();
+  response.json();
 });
 
 // -------------------------- END OF TESTING PORTION CODE -----------------------------------------
